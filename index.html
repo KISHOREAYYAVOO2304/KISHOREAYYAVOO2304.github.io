@@ -43,7 +43,7 @@
             position: relative;
         }
 
-        /* Animated Background */
+        /* Enhanced Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -232,6 +232,14 @@
             width: 100%;
         }
 
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
         .mobile-menu-toggle {
             display: none;
             font-size: 1.5rem;
@@ -244,7 +252,7 @@
             transform: rotate(90deg);
         }
 
-        /* Hero Section with Enhanced Animations */
+        /* Hero Section with Enhanced Glassmorphism */
         #hero {
             min-height: 100vh;
             display: flex;
@@ -381,6 +389,10 @@
             box-shadow: none;
         }
 
+        .btn-secondary::before {
+            background: var(--primary-color);
+        }
+
         .btn-secondary:hover {
             background: var(--primary-color);
             box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
@@ -445,11 +457,13 @@
             max-width: 500px;
             margin: 0 auto;
             aspect-ratio: 16/10;
-            background: var(--surface-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--glass-border);
             transition: transform 0.3s ease;
         }
 
@@ -465,7 +479,9 @@
             left: 0;
             width: 100%;
             height: 30px;
-            background: var(--surface-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 2;
         }
@@ -495,7 +511,7 @@
             left: 0;
             width: 100%;
             height: calc(100% - 30px);
-            background: #000;
+            background: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
@@ -568,7 +584,7 @@
             51%, 100% { opacity: 0; }
         }
 
-        /* Sections */
+        /* Sections with Enhanced Glassmorphism */
         section {
             padding: var(--section-padding) 0;
             position: relative;
@@ -589,7 +605,9 @@
 
         /* About Section */
         #about {
-            background: var(--surface-color);
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             position: relative;
         }
 
@@ -642,6 +660,10 @@
             aspect-ratio: 4/3;
             border-radius: 10px;
             overflow: hidden;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease;
         }
@@ -672,7 +694,126 @@
             50% { transform: translateY(-20px); }
         }
 
+        /* Resume Section */
+        #resume {
+            background: var(--surface-color);
+            position: relative;
+        }
+
+        #resume::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .resume-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .resume-container.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .resume-left {
+            border-right: 1px solid var(--glass-border);
+            padding-right: 40px;
+        }
+
+        .resume-right {
+            padding-left: 40px;
+        }
+
+        .resume-section {
+            margin-bottom: 30px;
+        }
+
+        .resume-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .resume-section h3 i {
+            font-size: 1rem;
+        }
+
+        .resume-item {
+            margin-bottom: 15px;
+        }
+
+        .resume-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .resume-item p {
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .resume-item ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .resume-item li {
+            position: relative;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .resume-item li::before {
+            content: '•';
+            position: absolute;
+            left: -15px;
+            color: var(--primary-color);
+        }
+
         /* Skills Section */
+        #skills {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        #skills::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -681,8 +822,8 @@
 
         .skill-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 30px;
@@ -783,47 +924,101 @@
             width: var(--skill-level);
         }
 
-        /* Services Section */
-        #services {
+        /* Projects Section with Popup Modal */
+        #projects {
             background: var(--surface-color);
             position: relative;
         }
 
-        .services-grid {
+        #projects::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .service-card {
+        .project-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
-            padding: 30px;
+            overflow: hidden;
             transition: all 0.4s ease;
             opacity: 0;
             transform: translateY(30px);
             position: relative;
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(124, 58, 237, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .project-card:nth-child(1).is-visible { transition-delay: 0.1s; }
+        .project-card:nth-child(2).is-visible { transition-delay: 0.2s; }
+        .project-card:nth-child(3).is-visible { transition-delay: 0.3s; }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+            border-color: var(--primary-color);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
             overflow: hidden;
         }
 
-        .service-card::before {
+        .project-image::before {
             content: '';
             position: absolute;
             top: -50%;
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.3s ease;
+            animation: rotate 10s linear infinite;
         }
 
-        .service-card:hover::before {
+        .project-card:hover .project-image::before {
             opacity: 1;
-            animation: rotate 10s linear infinite;
         }
 
         @keyframes rotate {
@@ -831,50 +1026,232 @@
             100% { transform: rotate(360deg); }
         }
 
-        .service-card.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .service-card:nth-child(1).is-visible { transition-delay: 0.1s; }
-        .service-card:nth-child(2).is-visible { transition-delay: 0.2s; }
-        .service-card:nth-child(3).is-visible { transition-delay: 0.3s; }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
-            border-color: var(--primary-color);
-        }
-
-        .service-icon {
-            font-size: 2.5rem;
+        .project-image i {
+            font-size: 3rem;
             color: var(--primary-color);
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image i {
+            transform: scale(1.1);
+        }
+
+        .project-content {
+            padding: 25px;
             position: relative;
             z-index: 1;
         }
 
-        .service-card:hover .service-icon {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .service-title {
+        .project-title {
             font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 10px;
         }
 
-        .service-description {
-            font-size: 0.95rem;
+        .project-date {
+            font-size: 0.9rem;
             color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .project-tag {
+            padding: 5px 12px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        .project-tag:hover {
+            background: rgba(139, 92, 246, 0.2);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Project Modal with Glassy Effect */
+        .project-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
             position: relative;
-            z-index: 1;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .project-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .modal-close {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(139, 92, 246, 0.1);
+            color: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(124, 58, 237, 0.3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-project-image i {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+
+        .modal-project-details {
+            margin-bottom: 20px;
+        }
+
+        .modal-project-details h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .modal-project-details p {
+            margin-bottom: 15px;
+        }
+
+        .modal-tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .modal-tech-item {
+            padding: 8px 15px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+
+        .modal-project-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .modal-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            color: var(--accent-color);
+            transform: translateX(5px);
         }
 
         /* Contact Section */
+        #contact {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: relative;
+        }
+
+        #contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -895,8 +1272,8 @@
 
         .contact-form {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             padding: 30px;
@@ -1159,6 +1536,7 @@
                 width: 100%;
                 background: rgba(10, 10, 10, 0.98);
                 backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
                 padding: 20px;
                 border-top: 1px solid var(--glass-border);
@@ -1197,21 +1575,10 @@
                 max-width: 100%;
             }
             
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .footer-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .scroll-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
+            .modal-content {
+                width: 95%;
+            max-width: 90%;
+            max-height: 70vh;
             }
         }
 
@@ -1269,7 +1636,12 @@
                 <span>KISHORE</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#resume" class="nav-link">Resume</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="mobile-menu-toggle">
                 <i class="fas fa-bars"></i>
@@ -1290,11 +1662,11 @@
                     <p>Protecting digital assets and securing infrastructures with cutting-edge cybersecurity solutions.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn">Get In Touch</a>
-                        <a href="#services" class="btn btn-secondary">My Services</a>
+                        <a href="#projects" class="btn btn-secondary">My Projects</a>
                     </div>
                     <div class="social-links">
-                        <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/kishore-a-642975372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/kishoreayyavoo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                         <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                         <a href="#" target="_blank" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
@@ -1343,6 +1715,343 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate Cyber Security Analyst with expertise in identifying vulnerabilities, implementing security measures, and protecting digital assets from sophisticated threats.</p>
+                    <p>As Co-founder of EEMONX, I lead a team of dedicated security professionals committed to providing cutting-edge solutions for businesses of all sizes. My expertise spans across network security, ethical hacking, and compliance frameworks.</p>
+                    <p>I believe in a proactive approach to cybersecurity, staying ahead of emerging threats through continuous learning and innovation. My goal is to create a safer digital environment for businesses and individuals alike.</p>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame">
+                        <div class="image-placeholder">
+                            <i class="fas fa-shield-alt"></i>
+                            <p>Cybersecurity Expert</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resume</h2>
+            </div>
+            <div class="resume-container">
+                <div class="resume-left">
+                    <div class="resume-section">
+                        <h3><i class="fas fa-user"></i> Contact</h3>
+                        <div class="resume-item">
+                            <p><i class="fas fa-phone"></i> +91 94868 02976</p>
+                            <p><i class="fas fa-envelope"></i> kishoremonika87@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt"></i> Erode, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                        <div class="resume-item">
+                            <h4>Nandha Engineering College</h4>
+                            <p>B.E Computer Science and Engineering (Cyber Security)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3><i class="fas fa-language"></i> Languages</h3>
+                        <div class="resume-item">
+                            <p>Tamil</p>
+                            <p>English</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-right">
+                    <div class="resume-section">
+                        <h3><i class="fas fa-briefcase"></i> Professional Experience</h3>
+                        <div class="resume-item">
+                            <h4>Co-founder & Cyber Security Analyst</h4>
+                            <p>EEMONX | Present</p>
+                            <ul>
+                                <li>Leading security assessments and vulnerability testing</li>
+                                <li>Implementing security protocols for client infrastructures</li>
+                                <li>Developing custom security solutions for diverse industries</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3><i class="fas fa-tools"></i> Cyber Security Tools</h3>
+                        <div class="resume-item">
+                            <ul>
+                                <li>Wireshark</li>
+                                <li>Metasploit</li>
+                                <li>Nmap</li>
+                                <li>Burp Suite</li>
+                                <li>OWASP ZAP</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3><i class="fas fa-certificate"></i> Programming Language</h3>
+                        <div class="resume-item">
+                            <ul>
+                                <li>Python</li>
+                                <li>Common Language(HTML,CSS)</li>
+                                <li>JavaScript</li>
+                                <li>Java</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <a href="#" class="btn" style="margin: 40px auto; display: flex; justify-content: center; max-width: 300px;">
+                <i class="fas fa-download"></i>
+                Download Resume PDF
+            </a>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card" style="--skill-level: 95%;">
+                    <div class="skill-icon"><i class="fab fa-python"></i></div>
+                    <div class="skill-title">Python</div>
+                    <div class="skill-description">Security scripting and automation</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 90%;">
+                    <div class="skill-icon"><i class="fab fa-linux"></i></div>
+                    <div class="skill-title">Linux</div>
+                    <div class="skill-description">Security hardening and penetration testing</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 92%;">
+                    <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="skill-title">Network Security</div>
+                    <div class="skill-description">Firewall configuration and monitoring</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 94%;">
+                    <div class="skill-icon"><i class="fas fa-user-secret"></i></div>
+                    <div class="skill-title">Ethical Hacking</div>
+                    <div class="skill-description">Penetration testing and vulnerability assessment</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 88%;">
+                    <div class="skill-icon"><i class="fas fa-lock"></i></div>
+                    <div class="skill-title">Cryptography</div>
+                    <div class="skill-description">Encryption and secure communication protocols</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 85%;">
+                    <div class="skill-icon"><i class="fas fa-shield-virus"></i></div>
+                    <div class="skill-title">Malware Analysis</div>
+                    <div class="skill-description">Detecting, analyzing, and mitigating malicious software</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 87%;">
+                    <div class="skill-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="skill-title">Compliance</div>
+                    <div class="skill-description">Ensuring adherence to security standards and regulations</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+                <div class="skill-card" style="--skill-level: 80%;">
+                    <div class="skill-icon"><i class="fas fa-palette"></i></div>
+                    <div class="skill-title">Photoshop</div>
+                    <div class="skill-description">Security awareness material design</div>
+                    <div class="skill-level">
+                        <div class="skill-progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Popup Modal -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-project-id="1">
+                    <div class="project-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Tech Dev Community</div>
+                        <div class="project-date">January 2025</div>
+                        <div class="project-description">A secure platform for developers to collaborate and share knowledge with advanced privacy features and encrypted communications.</div>
+                        <div class="project-tags">
+                            <span class="project-tag">Web Development</span>
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">Community</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project-id="2">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Real Time Analysis</div>
+                        <div class="project-date">November 2024</div>
+                        <div class="project-description">Advanced threat detection system using machine learning algorithms to identify and respond to security incidents in real-time.</div>
+                        <div class="project-tags">
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card" data-project-id="3">
+                    <div class="project-image">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-title">Deep Fake Detection</div>
+                        <div class="project-date">2023 - November 2024</div>
+                        <div class="project-description">Innovative solution to identify and combat deepfake media using advanced AI algorithms and digital forensics techniques.</div>
+                        <div class="project-tags">
+                            <span class="project-tag">AI/ML</span>
+                            <span class="project-tag">Digital Forensics</span>
+                            <span class="project-tag">Security</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Project Title</h3>
+                <div class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-project-image">
+                    <i class="fas fa-users" id="modalIcon"></i>
+                </div>
+                <div class="modal-project-details">
+                    <h3 id="modalProjectTitle">Project Title</h3>
+                    <p id="modalProjectDate">Project Date</p>
+                    <p id="modalProjectDescription">Project Description</p>
+                    <div class="modal-tech-stack" id="modalTechStack">
+                        <!-- Tech stack items will be added dynamically -->
+                    </div>
+                </div>
+                <div class="modal-project-links">
+                    <a href="#" class="modal-link" id="modalLiveLink">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                    <a href="#" class="modal-link" id="modalCodeLink">
+                        <i class="fab fa-github"></i> Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>Ready to enhance your security posture? Let's discuss how I can help protect your digital assets.</p>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>kishoremonika87@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 94868 02976</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <h4>Office</h4>
+                            <p>EEMONX Headquarters, Erode.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/kishore-a-642975372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/kishoreayyavoo" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contactForm">
+                    <h3>Send Me a Message</h3>
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required placeholder="john@example.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -1351,7 +2060,12 @@
                     <span>KISHORE</span>
                 </a>
                 <ul class="footer-links">
-                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#hero" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#resume" class="nav-link">Resume</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
             </div>
             <div class="copyright">
@@ -1379,69 +2093,69 @@
 
             // Particles.js Configuration
             const particlesConfig = {
-                "particles": {
-                    "number": {
-                        "value": 60,
-                        "density": {
-                            "enable": true,
-                            "value_area": 800
-                        }
-                    },
-                    "color": {
-                        "value": "#8b5cf6"
-                    },
-                    "shape": {
-                        "type": "circle"
-                    },
-                    "opacity": {
-                        "value": 0.4,
-                        "random": false
-                    },
-                    "size": {
-                        "value": 2,
-                        "random": true
-                    },
-                    "line_linked": {
-                        "enable": true,
-                        "distance": 150,
-                        "color": "#8b5cf6",
-                        "opacity": 0.3,
-                        "width": 1
-                    },
-                    "move": {
-                        "enable": true,
-                        "speed": 4,
-                        "direction": "none",
-                        "random": false,
-                        "straight": false,
-                        "out_mode": "out",
-                        "bounce": false
-                    }
+              "particles": {
+                "number": {
+                  "value": 60,
+                  "density": {
+                    "enable": true,
+                    "value_area": 800
+                  }
                 },
-                "interactivity": {
-                    "detect_on": "canvas",
-                    "events": {
-                        "onhover": {
-                            "enable": true,
-                            "mode": "repulse"
-                        },
-                        "onclick": {
-                            "enable": true,
-                            "mode": "push"
-                        },
-                        "resize": true
-                    },
-                    "modes": {
-                        "repulse": {
-                            "distance": 150,
-                            "duration": 0.4
-                        },
-                        "push": {
-                            "particles_nb": 4
-                        }
-                    }
+                "color": {
+                  "value": "#8b5cf6"
                 },
-                "retina_detect": true
+                "shape": {
+                  "type": "circle"
+                },
+                "opacity": {
+                  "value": 0.4,
+                  "random": false
+                },
+                "size": {
+                  "value": 2,
+                  "random": true
+                },
+                "line_linked": {
+                  "enable": true,
+                  "distance": 150,
+                  "color": "#8b5cf6",
+                  "opacity": 0.3,
+                  "width": 1
+                },
+                "move": {
+                  "enable": true,
+                  "speed": 4,
+                  "direction": "none",
+                  "random": false,
+                  "straight": false,
+                  "out_mode": "out",
+                  "bounce": false
+                }
+              },
+              "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                  "onhover": {
+                    "enable": true,
+                    "mode": "repulse"
+                  },
+                  "onclick": {
+                    "enable": true,
+                    "mode": "push"
+                  },
+                  "resize": true
+                },
+                "modes": {
+                  "repulse": {
+                    "distance": 150,
+                    "duration": 0.4
+                  },
+                  "push": {
+                    "particles_nb": 4
+                  }
+                }
+              },
+              "retina_detect": true
             };
 
             particlesJS('particles-js', particlesConfig);
@@ -1456,8 +2170,53 @@
                 }
             });
 
+            // Active Navigation Link
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            window.addEventListener('scroll', () => {
+                let current = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= (sectionTop - 100)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinksList = document.querySelector('.nav-links');
+
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinksList.classList.toggle('active');
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            });
+
+            // Close mobile menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinksList.classList.remove('active');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+
             // Scroll-triggered Animations
-            const animatedElements = document.querySelectorAll('.section-title, .about-text, .about-image, .skill-card, .service-card, .contact-info, .contact-form');
+            const animatedElements = document.querySelectorAll('.section-title, .about-text, .about-image, .resume-container, .skill-card, .project-card, .contact-info, .contact-form');
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1473,25 +2232,109 @@
                 observer.observe(el);
             });
 
-            // Mobile Menu Toggle
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            mobileMenuToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-                const icon = mobileMenuToggle.querySelector('i');
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
+            // Project Modal Functionality
+            const projectCards = document.querySelectorAll('.project-card');
+            const projectModal = document.getElementById('projectModal');
+            const modalClose = document.getElementById('modalClose');
+            
+            // Project data
+            const projectData = {
+                1: {
+                    title: 'Tech Dev Community',
+                    date: 'January 2025',
+                    description: 'A secure platform for developers to collaborate and share knowledge with advanced privacy features and encrypted communications. This project implements end-to-end encryption for all communications and includes real-time collaboration tools with access control mechanisms.',
+                    icon: 'fa-users',
+                    techStack: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'E2EE Encryption'],
+                    liveLink: '#',
+                    codeLink: '#'
+                },
+                2: {
+                    title: 'Real Time Analysis',
+                    date: 'November 2024',
+                    description: 'Advanced threat detection system using machine learning algorithms to identify and respond to security incidents in real-time. The system analyzes network traffic patterns and uses AI to detect anomalies that might indicate a security breach.',
+                    icon: 'fa-chart-line',
+                    techStack: ['Python', 'TensorFlow', 'Keras', 'Scikit-learn', 'Flask', 'Docker'],
+                    liveLink: '#',
+                    codeLink: '#'
+                },
+                3: {
+                    title: 'Deep Fake Detection',
+                    date: '2023 - November 2024',
+                    description: 'Innovative solution to identify and combat deepfake media using advanced AI algorithms and digital forensics techniques. The system analyzes facial features, voice patterns, and other digital artifacts to determine the authenticity of media content.',
+                    icon: 'fa-user-shield',
+                    techStack: ['Python', 'OpenCV', 'TensorFlow', 'PyTorch', 'Digital Forensics Tools'],
+                    liveLink: '#',
+                    codeLink: '#'
+                }
+            };
+            
+            projectCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const projectId = card.getAttribute('data-project-id');
+                    const project = projectData[projectId];
+                    
+                    // Update modal content
+                    document.getElementById('modalTitle').textContent = project.title;
+                    document.getElementById('modalIcon').className = `fas ${project.icon}`;
+                    document.getElementById('modalProjectTitle').textContent = project.title;
+                    document.getElementById('modalProjectDate').textContent = project.date;
+                    document.getElementById('modalProjectDescription').textContent = project.description;
+                    
+                    // Update tech stack
+                    const techStackContainer = document.getElementById('modalTechStack');
+                    techStackContainer.innerHTML = '';
+                    project.techStack.forEach(tech => {
+                        const techItem = document.createElement('div');
+                        techItem.className = 'modal-tech-item';
+                        techItem.textContent = tech;
+                        techStackContainer.appendChild(techItem);
+                    });
+                    
+                    // Update links
+                    document.getElementById('modalLiveLink').href = project.liveLink;
+                    document.getElementById('modalCodeLink').href = project.codeLink;
+                    
+                    // Show modal
+                    projectModal.classList.add('active');
+                });
+            });
+            
+            // Close modal
+            modalClose.addEventListener('click', () => {
+                projectModal.classList.remove('active');
+            });
+            
+            // Close modal when clicking outside
+            projectModal.addEventListener('click', (e) => {
+                if (e.target === projectModal) {
+                    projectModal.classList.remove('active');
+                }
             });
 
-            // Close mobile menu when clicking on a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                    const icon = mobileMenuToggle.querySelector('i');
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                });
+            // Form Submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const formObject = Object.fromEntries(formData);
+                console.log('Form submitted with data:', formObject);
+                
+                // Create success message
+                const successMessage = document.createElement('div');
+                successMessage.style.padding = '20px';
+                successMessage.style.marginTop = '20px';
+                successMessage.style.background = 'rgba(139, 92, 246, 0.2)';
+                successMessage.style.border = '1px solid var(--primary-color)';
+                successMessage.style.borderRadius = '10px';
+                successMessage.style.color = 'var(--text-color)';
+                successMessage.style.textAlign = 'center';
+                successMessage.style.animation = 'fadeInUp 0.5s ease-out';
+                successMessage.innerHTML = '<i class="fas fa-check-circle" style="color: var(--primary-color); font-size: 2rem; margin-bottom: 10px;"></i><h3>Thank you for your message!</h3><p>I\'ll get back to you as soon as possible.</p>';
+                
+                // Replace form with success message
+                contactForm.parentNode.replaceChild(successMessage, contactForm);
             });
 
             // Scroll to Top Button
@@ -1510,27 +2353,6 @@
                     top: 0,
                     behavior: 'smooth'
                 });
-            });
-
-            // Form Submission
-            const contactForm = document.querySelector('.contact-form');
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const formData = new FormData(contactForm);
-                console.log('Form submitted with data:', Object.fromEntries(formData));
-                
-                const successMessage = document.createElement('div');
-                successMessage.style.padding = '20px';
-                successMessage.style.marginTop = '20px';
-                successMessage.style.background = 'rgba(139, 92, 246, 0.2)';
-                successMessage.style.border = '1px solid var(--primary-color)';
-                successMessage.style.borderRadius = '10px';
-                successMessage.style.color = 'var(--text-color)';
-                successMessage.style.textAlign = 'center';
-                successMessage.style.animation = 'fadeInUp 0.5s ease-out';
-                successMessage.innerHTML = '<i class="fas fa-check-circle" style="color: var(--primary-color); font-size: 2rem; margin-bottom: 10px;"></i><p><strong>Thank you for your message!</strong></p><p>I\'ll get back to you soon.</p>';
-                
-                contactForm.parentNode.replaceChild(successMessage, contactForm);
             });
 
             // Smooth scrolling for anchor links
