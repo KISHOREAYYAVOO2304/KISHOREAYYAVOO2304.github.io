@@ -387,4 +387,15 @@ footer {
     .hero-photo-wrapper { width: 280px; height: 280px; }
     .hero-quote { margin-left: auto; margin-right: auto; }
     .grid-container { grid-template-columns: 1fr; }
+    
+    /* FIX FOR SCREENSHOT ISSUE: Adjust Section Titles */
+    .section-title {
+        font-size: 1.8rem; /* Smaller font so "TECHNICAL_ARSENAL" fits */
+        margin-bottom: 30px;
+        border-left-width: 4px;
+        padding-left: 15px;
+    }
+    
+    /* Adjust Card Padding on mobile */
+    .card-body, .card-info { padding: 20px; }
 }
