@@ -1,28 +1,33 @@
-// 1. PARTICLES CONFIG
+// 1. REFINED PARTICLES CONFIG
 particlesJS("particles-js", {
     "particles": {
-        "number": { "value": 50 },
-        "color": { "value": "#ffffff" },
+        "number": { "value": 25, "density": { "enable": true, "value_area": 900 } }, 
+        "color": { "value": ["#812de2", "#c471ff", "#00f3ff"] },
         "shape": { "type": "circle" },
-        "opacity": { "value": 0.3 },
-        "size": { "value": 3 },
-        "line_linked": { "enable": true, "distance": 150, "color": "#9d4edd", "opacity": 0.3, "width": 1 },
-        "move": { "enable": true, "speed": 1.5 }
+        "opacity": { "value": 0.4, "random": true, "anim": { "enable": true, "speed": 0.5, "opacity_min": 0.1, "sync": false } },
+        "size": { "value": 3, "random": true }, 
+        "line_linked": { "enable": false }, 
+        "move": { "enable": true, "speed": 1, "direction": "top", "random": true, "straight": false, "out_mode": "out", "bounce": false } 
     },
     "interactivity": {
-        "detect_on": "window",
-        "events": { "onhover": { "enable": true, "mode": "grab" } }
-    }
+        "detect_on": "canvas",
+        "events": { "onhover": { "enable": true, "mode": "bubble" }, "onclick": { "enable": true, "mode": "repulse" }, "resize": true },
+        "modes": {
+            "bubble": { "distance": 200, "size": 6, "duration": 2, "opacity": 0.6, "speed": 3 },
+            "repulse": { "distance": 200, "duration": 0.4 }
+        }
+    },
+    "retina_detect": true
 });
 
 // 2. MOBILE MENU TOGGLE
 const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('nav-links');
+const mobileNav = document.getElementById('mobile-nav');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+    mobileNav.classList.toggle('active');
     const icon = hamburger.querySelector('i');
-    if (navLinks.classList.contains('active')) {
+    if (mobileNav.classList.contains('active')) {
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-xmark');
     } else {
@@ -31,16 +36,31 @@ hamburger.addEventListener('click', () => {
     }
 });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
+// Remove Active Class from all nav links and add to clicked
+const navLinksDesktop = document.querySelectorAll('.desktop-nav .nav-links a');
+const navLinksMobile = document.querySelectorAll('.mobile-nav-links a');
+
+function handleNavClick(linksArray, e) {
+    linksArray.forEach(l => l.classList.remove('active'));
+    e.target.classList.add('active');
+}
+
+navLinksDesktop.forEach(link => {
+    link.addEventListener('click', (e) => handleNavClick(navLinksDesktop, e));
+});
+
+navLinksMobile.forEach(link => {
+    link.addEventListener('click', (e) => {
+        handleNavClick(navLinksMobile, e);
+        // Close Mobile Menu
+        mobileNav.classList.remove('active');
         const icon = hamburger.querySelector('i');
         icon.classList.remove('fa-xmark');
         icon.classList.add('fa-bars');
     });
 });
 
-// 3. MODAL LOGIC
+// 3. ENHANCED MODAL LOGIC
 const modalOverlay = document.getElementById('modal-overlay');
 const modalBody = document.getElementById('modal-body');
 const closeBtn = document.getElementById('close-modal');
@@ -50,41 +70,19 @@ window.openModal = function(id) {
     if (content) {
         modalBody.innerHTML = content.innerHTML;
         modalOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; 
     }
 }
 
 closeBtn.addEventListener('click', () => {
     modalOverlay.classList.remove('active');
-    document.body.style.overflow = 'auto';
+    // Delay restoring overflow to allow smooth CSS exit animation
+    setTimeout(() => { document.body.style.overflow = 'auto'; }, 300);
 });
+
 modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) {
         modalOverlay.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        setTimeout(() => { document.body.style.overflow = 'auto'; }, 300);
     }
 });
-
-// 4. TYPEWRITER
-const typeText = document.querySelector('.typewriter');
-const roles = ["Cyber Security Analyst", "Co-founder @ Eemonx", "Full Stack Developer"];
-let roleIndex = 0; let charIndex = 0; let isDeleting = false;
-
-function type() {
-    const currentRole = roles[roleIndex];
-    if (isDeleting) {
-        typeText.textContent = currentRole.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typeText.textContent = currentRole.substring(0, charIndex + 1);
-        charIndex++;
-    }
-    if (!isDeleting && charIndex === currentRole.length) {
-        isDeleting = true; setTimeout(type, 2000);
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false; roleIndex = (roleIndex + 1) % roles.length; setTimeout(type, 500);
-    } else {
-        setTimeout(type, isDeleting ? 50 : 100);
-    }
-}
-document.addEventListener('DOMContentLoaded', type);
