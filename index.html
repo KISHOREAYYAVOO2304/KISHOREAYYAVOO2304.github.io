@@ -3,246 +3,245 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kishore A | Eemonx Co-Founder</title>
+    <title>Kishore Kalash - Analyst & Designer</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --bg-base: #0a0612;
+            --accent-purple: #a955ff;
+            --accent-cyan: #00f0ff; /* Added a cyber-cyan for contrast */
+            --text-main: #ffffff;
+            --text-muted: #8b8599;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Space Grotesk', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* --- Dynamic Background --- */
+        .cyber-grid {
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background-image: 
+                linear-gradient(rgba(169, 85, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(169, 85, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 0;
+            opacity: 0.5;
+            animation: gridMove 20s linear infinite;
+        }
+
+        .glow-orb {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            background: radial-gradient(circle, rgba(169,85,255,0.15) 0%, rgba(10,6,18,0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+            animation: breathe 8s ease-in-out infinite alternate;
+        }
+
+        /* --- Main Content Wrapper --- */
+        .intro-wrapper {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: zoomOut 1.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* --- Name Animation Elements --- */
+        .name-container {
+            font-size: 5.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            letter-spacing: -2px;
+            text-shadow: 0 0 30px rgba(169, 85, 255, 0.4);
+        }
+
+        .word {
+            display: flex;
+            align-items: flex-end;
+            margin-right: 0.2em;
+        }
+
+        .initial {
+            display: inline-block;
+            color: var(--text-main);
+        }
+
+        .hidden-letters {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            max-width: 0;
+            opacity: 0;
+            animation: expandText 1.2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: 1.5s;
+        }
+
+        .subtitle {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: 2.8s;
+        }
+
+        /* --- Floating Tech Stack Icons --- */
+        .tech-stack {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            top: 0; left: 0;
+            z-index: 5;
+            pointer-events: none; /* Let clicks pass through to background */
+        }
+
+        .tech-icon {
+            position: absolute;
+            font-size: 2.5rem;
+            color: var(--text-muted);
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+        }
+
+        .tech-icon span {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            opacity: 0.7;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Individual Icon Positions & Delays */
+        .icon-1 { top: 20%; left: 15%; animation: popInFloat 4s ease-in-out infinite alternate 3.0s; } /* Figma */
+        .icon-2 { top: 70%; left: 20%; animation: popInFloat 5s ease-in-out infinite alternate-reverse 3.2s; } /* Kali */
+        .icon-3 { top: 15%; right: 20%; animation: popInFloat 4.5s ease-in-out infinite alternate 3.4s; } /* Nmap */
+        .icon-4 { top: 65%; right: 15%; animation: popInFloat 5.5s ease-in-out infinite alternate-reverse 3.6s; } /* Photoshop */
+        .icon-5 { top: 45%; left: 8%; animation: popInFloat 6s ease-in-out infinite alternate 3.8s; } /* Burp Suite */
+        .icon-6 { top: 40%; right: 8%; animation: popInFloat 4.2s ease-in-out infinite alternate-reverse 4.0s; } /* Canva */
+        .icon-7 { bottom: 10%; left: 45%; animation: popInFloat 5.2s ease-in-out infinite alternate 4.2s; } /* CorelDraw */
+        .icon-8 { top: 10%; left: 45%; animation: popInFloat 4.8s ease-in-out infinite alternate-reverse 4.4s; } /* Nessus */
+
+        .tech-icon:hover {
+            color: var(--accent-purple);
+            filter: drop-shadow(0 0 20px var(--accent-purple));
+            transition: all 0.3s ease;
+        }
+
+        /* --- Keyframes --- */
+        @keyframes zoomOut {
+            0% { transform: scale(3.5); opacity: 0; }
+            20% { opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes expandText {
+            0% { max-width: 0; opacity: 0; }
+            20% { opacity: 1; }
+            100% { max-width: 400px; opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popInFloat {
+            0% { opacity: 0; transform: scale(0) translateY(0); }
+            10% { opacity: 0.4; transform: scale(1) translateY(0); color: var(--accent-cyan); }
+            50% { opacity: 0.3; transform: scale(1) translateY(-15px); color: var(--text-muted); }
+            100% { opacity: 0.3; transform: scale(1) translateY(10px); color: var(--text-muted); }
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(40px); }
+        }
+
+        @keyframes breathe {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .name-container { font-size: 3rem; }
+            .subtitle { font-size: 0.9rem; }
+            .tech-icon { font-size: 1.8rem; }
+            .icon-5, .icon-6, .icon-7, .icon-8 { display: none; }
+        }
+    </style>
 </head>
 <body>
 
     <div class="cyber-grid"></div>
-    <div id="particles-js"></div>
+    <div class="glow-orb"></div>
 
-    <nav class="glass-nav">
-        <h2 class="logo">Kishore<span class="dot">_</span></h2>
-        
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#events">Events</a></li>
-            <li><a href="#contact" class="btn-nav">Contact</a></li>
-        </ul>
+    <div class="tech-stack">
+        <div class="tech-icon icon-1"><i class="devicon-figma-plain"></i><span>Figma</span></div>
+        <div class="tech-icon icon-4"><i class="devicon-photoshop-plain"></i><span>Photoshop</span></div>
+        <div class="tech-icon icon-6"><i class="devicon-canva-original"></i><span>Canva</span></div>
+        <div class="tech-icon icon-7"><i class="fa-solid fa-pen-nib"></i><span>CorelDRAW</span></div>
 
-        <div class="hamburger" id="hamburger">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-    </nav>
-
-    <div id="modal-overlay" class="modal-overlay">
-        <div class="modal-glass glass-panel">
-            <button id="close-modal">&times;</button>
-            <div id="modal-body"></div>
-        </div>
+        <div class="tech-icon icon-2"><i class="devicon-kalilinux-plain"></i><span>Kali Linux</span></div>
+        <div class="tech-icon icon-3"><i class="fa-solid fa-network-wired"></i><span>Nmap</span></div>
+        <div class="tech-icon icon-5"><i class="fa-solid fa-bug"></i><span>Burp Suite</span></div>
+        <div class="tech-icon icon-8"><i class="fa-solid fa-shield-halved"></i><span>Nessus</span></div>
     </div>
 
-    <section id="home">
-        <div class="hero-container">
-            
-            <div class="hero-photo-wrapper">
-                <img src="me.png" alt="Kishore A" class="hero-photo">
+    <div class="intro-wrapper">
+        <div class="name-container">
+            <div class="word">
+                <span class="initial">K</span>
+                <span class="hidden-letters">ishore</span>
             </div>
-
-            <div class="hero-content">
-                <div class="glitch-wrapper">
-                    <h1 class="glitch" data-text="Kishore A">Kishore A</h1>
-                </div>
-                <div class="role-wrapper">
-                    <span class="terminal-prompt">>_</span> 
-                    <span class="typewriter"></span><span class="cursor-blink">|</span>
-                </div>
-                <p class="bio">
-                    Co-founder of <strong>Eemonx</strong>. Editor Board Member. <br>
-                    Bridging the gap between <strong>Offensive Security</strong> and <strong>Full Stack Engineering</strong>.
-                </p>
-                
-                <div class="hero-quote glass-panel">
-                    <blockquote>
-                        “Security is not a product, but a process. It's about managing risk in a world that is becoming more connected.”
-                    </blockquote>
-                    <cite>— Bruce Schneier</cite>
-                </div>
-
-                <div class="social-row">
-                    <a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:kishoremonika87@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                </div>
+            <div class="word">
+                <span class="initial">K</span>
+                <span class="hidden-letters">alash</span>
             </div>
         </div>
-    </section>
+        
+        <p class="subtitle">Cyber Security Analyst & UI/UX Designer</p>
+    </div>
 
-    <section id="skills">
-        <h2 class="section-title">Technical_Arsenal</h2>
-        <div class="grid-container">
-            
-            <div class="card glass-panel interactive-card" onclick="openModal('dev-data')">
-                <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-                <div class="card-info">
-                    <h3>Development</h3>
-                    <p>Full-stack architecture & System design.</p>
-                    <div class="mini-tags"><span>Python</span><span>React</span><span>Node.js</span></div>
-                    <span class="click-hint">Click to view stack <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-                <div id="dev-data" class="hidden-content">
-                    <h2>Development Stack</h2>
-                    <p class="modal-desc">Building scalable web applications.</p>
-                    <ul class="modal-list">
-                        <li><strong>Languages:</strong> Python, Java, C, HTML5/CSS3</li>
-                        <li><strong>Frameworks:</strong> React.js, Node.js, Express</li>
-                        <li><strong>Tools:</strong> Git, Docker, VS Code, Linux</li>
-                    </ul>
-                </div>
-            </div>
+    <script>
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 5000);
+    </script>
 
-            <div class="card glass-panel interactive-card" onclick="openModal('cyber-data')">
-                <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                <div class="card-info">
-                    <h3>Cyber Security</h3>
-                    <p>Vulnerability Assessment & NetSec.</p>
-                    <div class="mini-tags"><span>Burp Suite</span><span>Wireshark</span><span>Nmap</span></div>
-                    <span class="click-hint">Click to view tools <i class="fa-solid fa-arrow-right"></i></span>
-                </div>
-                <div id="cyber-data" class="hidden-content">
-                    <h2>Security Tools</h2>
-                    <p class="modal-desc">Penetration testing and traffic analysis.</p>
-                    <ul class="modal-list">
-                        <li><strong>Analysis:</strong> Wireshark, Nmap</li>
-                        <li><strong>Web Sec:</strong> Burp Suite, OWASP ZAP</li>
-                        <li><strong>Attacks:</strong> Aircrack-ng, Metasploit</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2 class="section-title">Executed_Protocols</h2>
-        <div class="grid-container">
-
-            <div class="card glass-panel interactive-card" onclick="openModal('proj-1')">
-                <div class="gradient-bar gradient-1"></div>
-                <div class="card-body">
-                    <span class="tag">WEB 3.0</span>
-                    <h3>Tech Dev Community</h3>
-                    <p>Collaborative platform for developers.</p>
-                    <div class="tech-stack-row"><span>React</span><span>Firebase</span></div>
-                </div>
-                <div id="proj-1" class="hidden-content">
-                    <h2>Tech Dev Community</h2>
-                    <p class="modal-desc-long">A platform for developers to share ideas and collaborate.</p>
-                    <a href="#" class="btn-modal">View Source <i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="card glass-panel interactive-card" onclick="openModal('proj-2')">
-                <div class="gradient-bar gradient-2"></div>
-                <div class="card-body">
-                    <span class="tag">NETWORKING</span>
-                    <h3>Real Time Analysis</h3>
-                    <p>Live network analyzer with alerts.</p>
-                    <div class="tech-stack-row"><span>Python</span><span>C</span></div>
-                </div>
-                <div id="proj-2" class="hidden-content">
-                    <h2>Real Time Analysis</h2>
-                    <p class="modal-desc-long">Network monitoring using Python and C raw sockets.</p>
-                    <a href="#" class="btn-modal">View Source <i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-
-            <div class="card glass-panel interactive-card" onclick="openModal('proj-3')">
-                <div class="gradient-bar gradient-3"></div>
-                <div class="card-body">
-                    <span class="tag">AI / ML</span>
-                    <h3>Deep Fake Detection</h3>
-                    <p>AI system to detect fraud media.</p>
-                    <div class="tech-stack-row"><span>TensorFlow</span><span>OpenCV</span></div>
-                </div>
-                <div id="proj-3" class="hidden-content">
-                    <h2>Deep Fake Detection</h2>
-                    <p class="modal-desc-long">Detecting face-swaps using facial artifacts analysis.</p>
-                    <a href="#" class="btn-modal">View Source <i class="fa-brands fa-github"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="events">
-        <h2 class="section-title">Events</h2>
-        <div class="event-banner glass-panel interactive-card" onclick="openModal('event-aura')">
-            <div class="event-content">
-                <div class="event-badges"><span class="badge-fill">Speaker</span></div>
-                <h3>Aura'25: Art of Netexploitation</h3>
-                <h4>Nandha Engineering College</h4>
-                <span class="click-cta">View Gallery <i class="fa-solid fa-images"></i></span>
-            </div>
-            <div class="event-year"><span>2025</span></div>
-        </div>
-        <div id="event-aura" class="hidden-content">
-            <h2>Aura'25 Workshop</h2>
-            <p>Workshop on Ethical Hacking and Network Defense.</p>
-            <div class="modal-gallery">
-                <img src="1.jpg" alt="Event 1">
-                <img src="2.jpg" alt="Event 2">
-            </div>
-        </div>
-    </section>
-
-    <section id="gallery" class="full-width-section">
-        <h2 class="section-title" style="padding-left: 5%; margin-bottom: 30px;">Visual_Chronicles</h2>
-        <div class="gallery-container glass-panel">
-            <div class="gallery-track">
-                
-                <div class="gallery-item"><img src="1.jpg" alt="1"></div>
-                <div class="gallery-item"><img src="2.jpg" alt="2"></div>
-                <div class="gallery-item"><img src="3.jpg" alt="3"></div>
-                <div class="gallery-item"><img src="4.jpg" alt="4"></div>
-
-                <div class="gallery-item"><img src="1.jpg" alt="1"></div>
-                <div class="gallery-item"><img src="2.jpg" alt="2"></div>
-                <div class="gallery-item"><img src="3.jpg" alt="3"></div>
-                <div class="gallery-item"><img src="4.jpg" alt="4"></div>
-
-                <div class="gallery-item"><img src="1.jpg" alt="1"></div>
-                <div class="gallery-item"><img src="2.jpg" alt="2"></div>
-                <div class="gallery-item"><img src="3.jpg" alt="3"></div>
-                <div class="gallery-item"><img src="4.jpg" alt="4"></div>
-
-                <div class="gallery-item"><img src="1.jpg" alt="1"></div>
-                <div class="gallery-item"><img src="2.jpg" alt="2"></div>
-                <div class="gallery-item"><img src="3.jpg" alt="3"></div>
-                <div class="gallery-item"><img src="4.jpg" alt="4"></div>
-
-                <div class="gallery-item"><img src="1.jpg" alt="1"></div>
-                <div class="gallery-item"><img src="2.jpg" alt="2"></div>
-                <div class="gallery-item"><img src="3.jpg" alt="3"></div>
-                <div class="gallery-item"><img src="4.jpg" alt="4"></div>
-
-                <div class="gallery-item"><img src="1.jpg" alt="1"></div>
-                <div class="gallery-item"><img src="2.jpg" alt="2"></div>
-                <div class="gallery-item"><img src="3.jpg" alt="3"></div>
-                <div class="gallery-item"><img src="4.jpg" alt="4"></div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-content">
-            <h2>Let's Build Secure Systems.</h2>
-            <div class="social-row-large">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
-                <a href="#"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <p class="copyright">© 2025 Kishore A.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
