@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kishore Kalash | Cyber Security & UI/UX</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+    
+    <div id="particles-js"></div>
+
+    <header class="header-container">
+        <div class="nav-glass-panel">
+            <div class="logo-container">
+                <h2 class="logo">Kishore Kalash</h2>
+            </div>
+            
+            <nav class="desktop-nav" id="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#contact" class="btn-nav-cta hidden-mobile">Contact Now</a>
+                <div class="hamburger" id="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+        
+        <nav class="mobile-nav" id="mobile-nav">
+            <ul class="mobile-nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#events">Events</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="modal-overlay" class="modal-overlay">
+        <div class="modal-glass glass-panel">
+            <button id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <section id="home" class="hero-section split-hero">
+        
+        <div class="hero-left">
+            <div class="photo-wrapper">
+                <div class="photo-container glass-panel">
+                    <img src="me.jpeg" alt="Kishore Kalash">
+                </div>
+                <div class="floating-badge"><i class="fa-solid fa-circle-check"></i> Verified Profile</div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <div class="greeting-wrapper">
+                <span class="script-font">Hello, I'm</span>
+            </div>
+            
+            <h1 class="text-bold">Kishore A.</h1>
+            <h2 class="sub-role">Cyber Security Analyst & UI/UX Designer</h2>
+            
+            <!-- <p class="hero-description">
+                I forge impenetrable digital fortresses and craft seamless user journeys. By merging strong <strong>Offensive Security</strong> protocols with intuitive <strong>Human-Centered Design</strong>, I build systems that are as relentlessly secure as they are visually stunning.
+            </p> -->
+            <p class="hero-description">
+            I build secure digital systems that protect against cyber threats while delivering smooth and intuitive user experiences. <strong> combining cybersecurity expertise with user-focused design</strong>, I create solutions that are both powerful and visually appealing.    
+            </p>
+
+            <div class="core-stack-container">
+                <span class="stack-label">Core Stack</span>
+                <div class="icon-dock glass-panel">
+                    <div class="dock-icon tooltip-container">
+                        <i class="fa-solid fa-shield-virus"></i><span class="tooltip">Cyber Security</span>
+                    </div>
+                    <div class="dock-icon tooltip-container">
+                        <i class="fa-solid fa-pen-nib"></i><span class="tooltip">Photoshop</span>
+                    </div>
+                    <div class="dock-icon tooltip-container">
+                        <i class="fa-solid fa-palette"></i><span class="tooltip">Canva</span>
+                    </div>
+                    <div class="dock-icon tooltip-container">
+                        <i class="fa-solid fa-bezier-curve"></i><span class="tooltip">CorelDraw</span>
+                    </div>
+                    <div class="dock-icon tooltip-container">
+                        <i class="fa-brands fa-figma"></i><span class="tooltip">Figma</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="https://react-site-for-adobe.vercel.app/" class="btn-primary">View Design Art's</a>
+                <a href="https://github.com/kishoreayyavoo" target="_blank" class="btn-ghost"><i class="fa-brands fa-github"></i> GitHub</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="showcase-section">
+        <div class="section-header">
+            <h2 class="section-title">Explore <span class="highlight-text">Projects</span></h2>
+            <p>Our Latest Works in Security & Development</p>
+        </div>
+
+        <div class="nft-grid">
+            <div class="nft-card glass-panel" onclick="openModal('proj-1')">
+                <div class="card-author">
+                    <div class="author-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <span>Kishore A</span>
+                </div>
+                <div class="nft-image placeholder-1">
+                    <i class="fa-solid fa-fingerprint"></i>
+                </div>
+                <div class="nft-details">
+                    <h3>Passwordless Auth</h3>
+                    <div class="nft-bottom">
+                        <div class="bid-info">
+                            <span>Tech Stack</span>
+                            <h4>Crypto, QR</h4>
+                        </div>
+                        <button class="btn-action">View</button>
+                    </div>
+                </div>
+                <div id="proj-1" class="hidden-content">
+                    <h2 class="highlight-text">Passwordless Auth (2026)</h2>
+                    <p class="modal-desc-long">Built a login system using public/private key cryptography with QR-based authentication, eliminating traditional password vulnerabilities. Ensured private keys are securely stored on user devices with a QR-enabled recovery mechanism.</p>
+                    <a href="https://github.com/kishoreayyavoo" target="_blank" class="btn-primary mt-4">View Source</a>
+                </div>
+            </div>
+
+            <div class="nft-card glass-panel" onclick="openModal('proj-2')">
+                <div class="card-author">
+                    <div class="author-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <span>Kishore A</span>
+                </div>
+                <div class="nft-image placeholder-2">
+                    <i class="fa-solid fa-users-rays"></i>
+                </div>
+                <div class="nft-details">
+                    <h3>Tech Dev Nexus</h3>
+                    <div class="nft-bottom">
+                        <div class="bid-info">
+                            <span>Tech Stack</span>
+                            <h4>Full Stack</h4>
+                        </div>
+                        <button class="btn-action">View</button>
+                    </div>
+                </div>
+                <div id="proj-2" class="hidden-content">
+                    <h2 class="highlight-text">Tech Dev Nexus (2025)</h2>
+                    <p class="modal-desc-long">Developed a platform where students post real-time project issues and peers provide solutions. Integrated a gamified star and badge system to encourage engagement.</p>
+                    <a href="https://github.com/kishoreayyavoo" target="_blank" class="btn-primary mt-4">View Source</a>
+                </div>
+            </div>
+
+            <div class="nft-card glass-panel" onclick="openModal('proj-3')">
+                <div class="card-author">
+                    <div class="author-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <span>Kishore A</span>
+                </div>
+                <div class="nft-image placeholder-3">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+                <div class="nft-details">
+                    <h3>Network Analysis</h3>
+                    <div class="nft-bottom">
+                        <div class="bid-info">
+                            <span>Tech Stack</span>
+                            <h4>Python, C</h4>
+                        </div>
+                        <button class="btn-action">View</button>
+                    </div>
+                </div>
+                <div id="proj-3" class="hidden-content">
+                    <h2 class="highlight-text">Real Time Network Analysis (2024)</h2>
+                    <p class="modal-desc-long">Developed a system to capture and analyze network packets in real-time. Implemented detection of suspicious activities and protocol-level irregularities.</p>
+                    <a href="https://github.com/kishoreayyavoo" target="_blank" class="btn-primary mt-4">View Source</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="info-section">
+        <div class="section-header">
+            <h2 class="section-title">Technical <span class="highlight-text">Arsenal</span></h2>
+            <p>The tools and technologies I use to build and secure digital experiences.</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card glass-panel interactive-card" onclick="openModal('dev-data')">
+                <div class="skill-icon-wrap icon-blue">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <h3>Full-Stack Dev</h3>
+                <p>Building scalable web and mobile applications.</p>
+                <div class="skill-tags">
+                    <span>Python</span><span>Java</span><span>Flutter</span><span>Bash</span>
+                </div>
+            </div>
+
+            <div class="skill-card glass-panel interactive-card" onclick="openModal('cyber-data')">
+                <div class="skill-icon-wrap icon-purple">
+                    <i class="fa-solid fa-shield-virus"></i>
+                </div>
+                <h3>Cyber Security</h3>
+                <p>Vulnerability assessment & network analysis.</p>
+                <div class="skill-tags">
+                    <span>Nmap</span><span>Wireshark</span><span>Burpsuite</span><span>Aircrack-ng</span>
+                </div>
+            </div>
+
+            <div class="skill-card glass-panel interactive-card" onclick="openModal('design-data')">
+                <div class="skill-icon-wrap icon-magenta">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p>Creating intuitive and user-centric interfaces.</p>
+                <div class="skill-tags">
+                    <span>Figma</span><span>Adobe</span><span>Canva</span><span>CorelDraw</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="dev-data" class="hidden-content">
+            <h2 class="highlight-text">Development Stack</h2>
+            <ul class="modal-list">
+                <li><strong>Languages:</strong> Python, Java, Bash</li>
+                <li><strong>Frameworks:</strong> Full Stack Development, Flutter</li>
+                <li><strong>Infrastructure:</strong> Server Handling, Linux</li>
+            </ul>
+        </div>
+        <div id="cyber-data" class="hidden-content">
+            <h2 class="highlight-text">Security Tools</h2>
+            <ul class="modal-list">
+                <li><strong>Network Analysis:</strong> Wireshark, Nmap</li>
+                <li><strong>Web Security:</strong> Burpsuite</li>
+                <li><strong>Wireless Sec:</strong> Aircrack-ng</li>
+            </ul>
+        </div>
+        <div id="design-data" class="hidden-content">
+            <h2 class="highlight-text">Design Tools</h2>
+            <ul class="modal-list">
+                <li><strong>Prototyping:</strong> Figma</li>
+                <li><strong>Graphics:</strong> Adobe Suite, CorelDraw</li>
+                <li><strong>Layouts:</strong> Canva</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="experience" class="category-section">
+        <div class="section-header">
+            <h2 class="section-title">Experience & <span class="highlight-text">Roles</span></h2>
+            <p>My journey through cybersecurity, development, and design.</p>
+        </div>
+        
+        <div class="experience-timeline">
+            <div class="timeline-item glass-panel interactive-card" onclick="openModal('exp-1')">
+                <div class="timeline-header">
+                    <div class="timeline-icon"><i class="fa-solid fa-user-secret"></i></div>
+                    <div class="timeline-title-wrap">
+                        <h3>Cyber Security Intern</h3>
+                        <span class="timeline-company">Cyfotok Cyber Security Solutions</span>
+                    </div>
+                </div>
+                <div class="timeline-date">2025</div>
+            </div>
+
+            <div class="timeline-item glass-panel interactive-card" onclick="openModal('exp-2')">
+                <div class="timeline-header">
+                    <div class="timeline-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <div class="timeline-title-wrap">
+                        <h3>Chair of Entrepreneurship (Yuva)</h3>
+                        <span class="timeline-company">Nandha Engineering College</span>
+                    </div>
+                </div>
+                <div class="timeline-date">2026</div>
+            </div>
+
+            <div class="timeline-item glass-panel interactive-card" onclick="openModal('exp-3')">
+                <div class="timeline-header">
+                    <div class="timeline-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <div class="timeline-title-wrap">
+                        <h3>Python & Web Dev Intern</h3>
+                        <span class="timeline-company">Vaults of Codes</span>
+                    </div>
+                </div>
+                <div class="timeline-date">2024</div>
+            </div>
+        </div>
+
+        <div id="exp-1" class="hidden-content">
+            <h2 class="highlight-text">Cyber Security Intern</h2>
+            <p><strong>Cyfotok Cyber Security Solutions (2025)</strong></p>
+            <p class="modal-desc-long">Gained hands-on experience in vulnerability assessment, penetration testing, and securing network infrastructures.</p>
+        </div>
+        <div id="exp-2" class="hidden-content">
+            <h2 class="highlight-text">Chair of Entrepreneurship (Yuva)</h2>
+            <p><strong>Nandha Engineering College (2026)</strong></p>
+            <p class="modal-desc-long">Led entrepreneurship initiatives, organized events, and fostered an environment of innovation among peers. Also served as a Designer Team Member.</p>
+        </div>
+        <div id="exp-3" class="hidden-content">
+            <h2 class="highlight-text">Python & Web Dev Intern</h2>
+            <p><strong>Vaults of Codes (2024)</strong></p>
+            <p class="modal-desc-long">Served dual roles as a Web Development Intern and Python Developer Intern, building robust full-stack solutions and optimizing backend logic.</p>
+        </div>
+    </section>
+
+    <section id="events" class="event-section">
+        <div class="section-header">
+            <h2 class="section-title">Key <span class="highlight-text">Engagements</span></h2>
+            <p>Speaking, organizing, and leading within the tech community.</p>
+        </div>
+
+        <div class="events-grid">
+            <div class="event-ticket glass-panel interactive-card">
+                <div class="ticket-date">
+                    <span>AURA</span>
+                    <h3>'25</h3>
+                </div>
+                <div class="ticket-info">
+                    <span class="event-role highlight-text">Speaker</span>
+                    <h4>Art of Netexploitation</h4>
+                    <p>Workshop Presenter</p>
+                </div>
+                <div class="ticket-icon"><i class="fa-solid fa-microphone-lines"></i></div>
+            </div>
+
+            <div class="event-ticket glass-panel interactive-card">
+                <div class="ticket-date">
+                    <span>SYNC</span>
+                    <h3>'26</h3>
+                </div>
+                <div class="ticket-info">
+                    <span class="event-role highlight-text">Co-ordinator</span>
+                    <h4>Capture The Flag (CTF)</h4>
+                    <p>Synectics Symposium</p>
+                </div>
+                <div class="ticket-icon"><i class="fa-solid fa-flag"></i></div>
+            </div>
+
+            <div class="event-ticket glass-panel interactive-card">
+                <div class="ticket-date">
+                    <span>PITCH</span>
+                    <h3>'26</h3>
+                </div>
+                <div class="ticket-info">
+                    <span class="event-role highlight-text">Chair & Co-ordinator</span>
+                    <h4>Pitch Presentation</h4>
+                    <p>Seminar Event</p>
+                </div>
+                <div class="ticket-icon"><i class="fa-solid fa-users-viewfinder"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-cta glass-panel">
+            <div class="cta-content">
+                <h2>Ready to build a secure digital future?</h2>
+                <p class="terminal-prompt">> Let's collaborate on your next big project.</p>
+            </div>
+            <a href="mailto:kishoremonika87@gmail.com" class="btn-primary">Initiate Contact</a>
+        </div>
+
+        <div class="footer-container">
+            <div class="footer-left">
+                <div class="footer-logo">
+                    <h2>Kishore Kalash</h2>
+                </div>
+                <p class="footer-bio">Bridging the gap between Offensive Security and intuitive UI/UX Design.</p>
+            </div>
+
+            <div class="footer-middle">
+                <h3>Design Portfolios</h3>
+                <div class="design-links">
+                    <a href="https://www.figma.com/" target="_blank" class="design-pill"><i class="fa-brands fa-figma"></i> Figma</a>
+                    <a href="https://www.adobe.com/" target="_blank" class="design-pill"><i class="fa-solid fa-pen-nib"></i> Photoshop</a>
+                    <a href="https://www.canva.com/" target="_blank" class="design-pill"><i class="fa-solid fa-palette"></i> Canva</a>
+                    <a href="https://www.coreldraw.com/" target="_blank" class="design-pill"><i class="fa-solid fa-bezier-curve"></i> CorelDraw</a>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <h3>Connect</h3>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/kishore-a-642975372/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/kishoreayyavoo" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <a href="mailto:kishoremonika87@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2026 Kishore Kalash. Secured & Designed with passion.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
